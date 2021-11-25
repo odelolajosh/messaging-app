@@ -1,0 +1,123 @@
+.uchat {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.uchat > div {
+    position: absolute;
+    transform-origin: 50% 50%;
+    border-radius: 50%;
+    transform: skew(-5deg, 0deg) rotate(180deg);
+}
+
+.uchat > div div {
+    position: absolute;
+}
+
+.uchat > div div:nth-child(1) {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.uchat > div div:nth-child(2) {
+    width: 50%;
+    height: 50%;
+    transform: translate(15%, 15%);
+    z-index: 0;
+}
+
+.uchat > div:nth-child(1) {
+    width: 75%;
+    height: 75%;
+    max-width: calc(100% - 16px);
+    max-height: calc(100% - 16px);
+    z-index: 3;
+}
+
+.uchat > div:nth-child(1) div {
+    background-color: #938af3;
+}
+
+
+.uchat > div:nth-child(2) {
+    width: 90%;
+    height: 90%;
+    max-width: calc(100% - 7px);
+    max-height: calc(100% - 7px);
+    z-index: 2;
+}
+
+.uchat > div:nth-child(2) div {
+    background-color: #dfdfdf;
+}
+
+.uchat.day > div:nth-child(2) div {
+    background-color: #f0f0f0
+}
+
+.uchat > div:nth-child(3) {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.uchat.animated {
+    transform: translate(10%, 10%);
+    animation: bounce 1200ms ease-in-out infinite alternate;
+}
+
+.uchat.hoveranimate:hover {
+    cursor: pointer;
+    animation: bounceForHover 1200ms ease-in-out infinite alternate;
+}
+.uchat.animated > div:nth-child(2),
+.uchat.hoveranimate:hover > div:nth-child(2) {
+    animation: xScale 900ms ease-in-out infinite alternate;
+}
+.uchat.animated > div:nth-child(1),
+.uchat.hoveranimate:hover > div:nth-child(1) {
+    animation: -xScale 1s ease-in-out infinite alternate;
+}
+
+@keyframes -xScale {
+    from {
+        transform: skew(-5deg, 0deg) rotate(180deg) scale(1);
+    } to {
+        transform: skew(-5deg, 0deg) rotate(180deg) scale(0.8);
+    }
+}
+
+@keyframes xScale {
+    from {
+        transform: skew(-5deg, 0deg) rotate(180deg) scale(1);
+    } to {
+        transform: skew(-5deg, 0deg) rotate(180deg) scale(1.05);
+    }
+}
+
+@keyframes xXScale {
+    from {
+        transform: skew(-5deg, 0deg) rotate(180deg) scale(1);
+    } to {
+        transform: skew(-5deg, 0deg) rotate(180deg) scale(1.1);
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translate(10%, calc(10% - 5px));
+    } 100% {
+        transform: translate(10%, calc(10% + 5px));
+    }
+}
+
+@keyframes bounceForHover {
+    0% {
+        transform: translate(0, calc(10% - 5px));
+    } 100% {
+        transform: translate(0, calc(10% + 5px));
+    }
+}

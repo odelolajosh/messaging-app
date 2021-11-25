@@ -1,0 +1,117 @@
+
+#navbar {
+    width: 80px;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    overflow-y: auto;
+    padding-bottom: 1rem;
+    /* box-shadow: 1px 0 .9rem rgba(17, 17, 17, 0.342); */
+    z-index: 1000;
+    transition: transform ease-in 100ms, opacity ease-in 300ms;
+    margin: 0px 5px;
+    border-radius: 8pt;
+}
+
+@media screen and (max-width: 600px) {
+    #navbar {
+        position: fixed;
+        margin: unset;
+        border-radius: unset;
+    }
+    #navbar.hide {
+        transform: translateX(-100%);
+        box-shadow: none;
+        /* opacity: 0; */
+    }
+}
+
+#navbar .icon {
+    display: grid;
+    place-items: center;
+    padding: 1rem
+}
+
+#navbar .links {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+#navbar .links span * {
+    transition: ease-out 300ms all;
+}
+
+#navbar .links span a {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    text-decoration: none;
+    color: unset;
+}
+
+#navbar .links span a svg {
+    width: 24px;
+}
+
+#navbar .links span a label {
+    margin-top: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+#navbar .links span.active svg {
+    fill: var(--base-color)
+}
+
+#navbar .links span.active {
+    background-color: var(--base-color-fade);
+}
+
+#navbar .links span.active label {
+    color: var(--base-color)
+}
+
+#navbar .prim-links,
+#navbar .sec-links {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+#navbar .prim-links > span,
+#navbar .sec-links > span {
+    margin: .67rem auto;
+    cursor: pointer;
+    width: calc(100% - 20px);
+    padding: 10px 5px;
+    border-radius: 4px;
+}
+/* 
+@media screen and (max-width: 600px) {
+    #navbar .icon {
+        display: inline;
+        padding: 0;
+        margin: 0 2.5rem 0 1rem;
+    }
+    #navbar .links {
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 0;
+    }
+    #navbar .prim-links,
+    #navbar .sec-links {
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    #navbar .links > div span {
+        margin: 0;
+        cursor: pointer;
+        margin-right: 2.5rem;
+    }
+} */

@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Quicksand:wght@400;500&display=swap');
+
+* {
+  font-family: 'Josefin', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+body .app-body {
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  position: relative;
+  scroll-behavior: smooth;
+  margin: 0;
+}
+
+.scroll-v.night::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--base-dark-contrast-fade);
+}
+
+.scroll-v.night::-webkit-scrollbar-thumb {
+  background: var(--base-light-contrast-mid);
+  width: 5px;
+  /* border-radius: 50px; */
+}

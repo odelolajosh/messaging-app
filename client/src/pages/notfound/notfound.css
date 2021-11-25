@@ -1,0 +1,45 @@
+
+
+#notfound {
+    width: 600px;
+    margin: 7vmax auto 1rem auto;
+    max-width: calc(100% - 20px);
+}
+
+@media screen and (max-width: 600px) {
+    #notfound {
+        margin-top: 25%;
+    }
+}
+
+#notfound h1 {
+    font-size: calc(20vmin + 40px);
+    letter-spacing: 2vmin;
+    text-align: center;
+    margin: 0;
+    transform: translateY(-15%);
+}
+
+#notfound .logo {
+    z-index: 10;
+    width: calc(20vmin + 50px);
+    height: calc(20vmin + 50px);
+}
+
+#notfound p {
+    text-align: center;
+    line-height: 25px;
+}
+
+#notfound p a {
+    color: var(--base-orange);
+    text-decoration: none;
+}
+
+@media screen and (max-width: 600px) {
+    #notfound p {
+        margin: auto;
+        margin-top: 2rem;
+        width: calc(100% - 40px);
+    }
+}
