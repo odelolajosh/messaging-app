@@ -134,7 +134,7 @@ class ChatRoom extends Component<Props, StateType> {
                     alert("Unable to fetch messages")
                 }
             } catch (err) {
-                console.log("an error occurred!!! \n", err)
+                console.warn("an error occurred!!! \n", err)
             } finally {
                 this.setState({ loadingChat: false })
             }
@@ -162,7 +162,7 @@ class ChatRoom extends Component<Props, StateType> {
                     alert("Unable to fetch messages")
                 }
             } catch (err) {
-                console.log("an error occurred!!! \n", err)
+                console.warn("an error occurred!!! \n", err)
             }
         }
     }

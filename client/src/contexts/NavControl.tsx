@@ -59,7 +59,6 @@ export class NavControlProvider extends Component {
 
     switchToggleValue = () => {
         const newValue = !this.state.toggle;
-        console.log('new', newValue)
         this.setState({ toggle: newValue });
         if (newValue) {
             window.setTimeout(

@@ -14,7 +14,7 @@ class ErrorHandler {
 
     getErrorRemark(err: Error) {
         err = this.normalizeError(err);
-        console.log(err.message)
+        console.warn(err.message)
         switch (err.message) {
             case this.FAILED_TO_FETCH:
                 return this.POOR_INTERNET_CONNECTION;

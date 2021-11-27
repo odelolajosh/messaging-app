@@ -71,11 +71,10 @@ const ChatList: React.FC = () => {
     }, [id]);
 
     const handleToChatListChange = useCallback((chatListResponse: any) => {
-        // console.log({ chatListResponse });
         if (chatList === null || chatList === [])
             return;
         if (chatListResponse.error) {
-            console.log("chat list", chatListResponse.error)
+            console.warn("Could not get chatlist")
         } else {
             if (chatListResponse.singleUser) {
                 if (chatListResponse.chatList._id === id) return;

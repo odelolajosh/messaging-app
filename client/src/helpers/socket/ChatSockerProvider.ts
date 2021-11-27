@@ -28,7 +28,7 @@ class ChatSocketProvider {
 
     getChatList(userId: string) {
         if (!SocketProvider.socket) {
-            console.log("socket is null")
+            console.warn("No connection!")
             return this.eventEmitter.emit('chat-list-response', { error: true, message: "Cannot login" });
         }
         SocketProvider.socket.emit('chat-list', { userId }, ({ error, message }: ChatErrorType) => {
@@ -53,7 +53,7 @@ class ChatSocketProvider {
 
     typingMessage(toUserId: string) {
         SocketProvider.socket?.emit('typing-message', { toUserId }, ({ error, message }: ChatErrorType) => {
-            console.log("error", message);
+            console.warn("error", message);
         });
     }
 

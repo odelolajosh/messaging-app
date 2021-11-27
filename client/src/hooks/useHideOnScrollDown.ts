@@ -14,7 +14,6 @@ const useHideOnScrollDown = (elem: React.RefObject<HTMLElement>, scrollBox: Reac
 
   const scrollHandler = () => {
     didScroll.current = true;
-    console.log(element ? element.getBoundingClientRect().top : 0)
   }
   useEffect(() => {
     if (scrollContainer) {
@@ -52,7 +51,6 @@ const useHideOnScrollDown = (elem: React.RefObject<HTMLElement>, scrollBox: Reac
     } else {
       setScrollDown(true);
     }
-    console.log({ scrollDown })
     lastScrollTop = st <= 0 ? 0 : st;
   }
 

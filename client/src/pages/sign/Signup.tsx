@@ -33,7 +33,6 @@ const Login: React.FC<Props> = (props) => {
     }
     
     const { from } = props.location.state || { from: {pathname: '/'} }
-    console.log({ token })
     if (token) {
         AuthProvider.authenticate(id, token);
         return <Redirect to={from.pathname} />

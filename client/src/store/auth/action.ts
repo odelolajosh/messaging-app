@@ -38,7 +38,6 @@ export const login = (request: LoginRequest): DispatchAction => {
             if (response.ok) {
                 const userData = await response.json();
                 if (userData.token) {
-                    console.log('userData', userData)
                     dispatch(Actions.login({ 
                         state: RequestAction.Success, 
                         id: userData.userId,  
