@@ -8,15 +8,26 @@ import { ChatSocketProvider } from "../../helpers/socket";
 import { selectAuthValue } from "../../store/auth";
 import { Header, Input, Text } from "../../style/element";
 import { useHistory, useLocation, useParams } from "react-router";
-import { NavContext, NavContextValueType } from "../../contexts/NavControl";
 import { ThemeContext } from "../../contexts/Theme";
+import { NavContext, NavContextValueType } from "../../contexts/NavControl";
 
 const ChatListWrapper = styled.section`
     height: 100%;
-    overflow-y: hidden;
+    overflow-y: auto;
     position: relative;
     background: ${props => props.theme.body};
     border-right: 2px solid ${props => props.theme.input};
+    padding-bottom: 3rem;
+
+    ::-webkit-scrollbar {
+        width: 4px;
+        background: transparent;
+    }
+      
+    ::-webkit-scrollbar-thumb {
+        background: ${props => props.theme.icon};
+        border-radius: 50px;
+    }
 `
 
 const SearchInput = styled.div`
@@ -186,6 +197,7 @@ type ChatListPropType = {
 }
 
 export const ChatItem: React.FC<ChatListPropType> = ({ chat }) => {
+    const { setNavToggle, isMobileViewPort } = useContext<NavContextValueType>(NavContext);
     const history = useHistory()
     const { pathname } = useLocation()
     const params = useParams<{ recipientId: string }>()
@@ -193,6 +205,10 @@ export const ChatItem: React.FC<ChatListPropType> = ({ chat }) => {
         const url = `/in/${id}`
         if (pathname !== url) {
             history.push(url)
+        } else {
+            if (isMobileViewPort) {
+                setNavToggle(false)
+            }
         }
     }
     return (

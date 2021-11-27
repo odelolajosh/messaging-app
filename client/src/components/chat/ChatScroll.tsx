@@ -71,6 +71,16 @@ const ScrollContainer = styled.div`
   width: 100%;
   position: relative;
   scroll-behavior: smooth;
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: ${props => props.theme.icon};
+    border-radius: 50px;
+  }
 `
 
 const Content = styled.div`

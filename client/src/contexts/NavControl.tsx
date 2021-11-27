@@ -51,7 +51,7 @@ export class NavControlProvider extends Component {
                 window.removeEventListener('click', this.handleCloseSidebar)
             } else {
                 this.setState({ isMobileViewPort: true, toggleValue: false })
-                // window.addEventListener('click', this.handleCloseSidebar)
+                window.addEventListener('click', this.handleCloseSidebar)
             }
             this.setState({ windowWidth: width })
         }
