@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import AuthProvider from './helpers/AuthProvider'
 import { checkToken, logout, selectAuthValue } from './store/auth'
 import { useDispatch, useSelector } from 'react-redux'
