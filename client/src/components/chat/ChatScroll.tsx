@@ -78,7 +78,7 @@ const ScrollContainer = styled.div`
   }
   
   ::-webkit-scrollbar-thumb {
-    background: ${props => props.theme.icon};
+    background: ${props => props.theme.icon}33;
     border-radius: 50px;
   }
 `
