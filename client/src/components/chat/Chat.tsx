@@ -60,7 +60,7 @@ const ChatRoomWrapper = styled.div`
 const Chat: React.FC = () => {
     const { id, pending, error } = useSelector(selectAuthValue);
     const { addTyping } = useContext(ChatContext);
-    const { setSidebarElem, isMobileViewPort, toggle, switchToggle, setNavToggle } = useContext<NavContextValueType>(NavContext);
+    const { setSidebarElem, isMobileViewPort, toggle, setNavToggle } = useContext<NavContextValueType>(NavContext);
     const [ state, setState ] = useState<{ pending: boolean, error: string | null }>({ 
         pending: true,
         error: null
@@ -106,13 +106,14 @@ const Chat: React.FC = () => {
     if (state.error || error) {
         return <div>{ state.error }</div>
     }
+
     return (
         <ChatWrapper>
             <ChatOverview ref={el => setSidebarElem(el)} isMobileViewPort={isMobileViewPort} toggle={toggle}>
                 <ChatList />
             </ChatOverview>
             <ChatRoomWrapper>
-                <ChatRoom toggleSidebar={switchToggle} />
+                <ChatRoom setNavToggle={setNavToggle} />
             </ChatRoomWrapper>
         </ChatWrapper>
     )

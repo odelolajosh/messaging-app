@@ -14,6 +14,8 @@ import { datesAreOnSameDay } from "../../helpers/dateHelper";
 import { ChatContext, UserType } from "../../contexts/ChatContext";
 import { State } from "../../store/type";
 import ChatScroll from "./ChatScroll";
+import { NavContext } from "../../contexts/NavControl";
+import { bindActionCreators } from "redux";
 
 const limit = 15
 
@@ -34,7 +36,7 @@ const mapStateToProps = (state: State) => ({
 })
 
 type Props = {
-    toggleSidebar?: () => void
+    setNavToggle: (bool: boolean) => void
 } & RouteComponentProps & ReturnType<typeof mapStateToProps>
 
 class ChatRoom extends Component<Props, StateType> {
@@ -53,7 +55,7 @@ class ChatRoom extends Component<Props, StateType> {
     }
 
     scrollRef: HTMLDivElement | null = null
-    static contextType = ChatContext
+    static contextType = NavContext
 
     componentDidUpdate(prevProps: Props) {
         const { recipientId: prevRecipientId } = prevProps.match.params as { recipientId: string }
@@ -247,16 +249,20 @@ class ChatRoom extends Component<Props, StateType> {
                     let recipient = chatList.find((u) => u._id === recipientId)
                     return (
                         <ChatTop>
-                            <span onClick={this.props.toggleSidebar}>
-                                <Icon icon="chevron-left" />
-                            </span>
+                            {
+                                this.context.isMobileViewPort ? (
+                                <Action onClick={() => this.props.setNavToggle(true)}>
+                                    <Icon icon="chevron-left" />
+                                </Action>
+                                ) : <Action><Icon icon="at-sign" size={20} /></Action>
+                            }
                             <span>{recipient?.username}</span>
                         </ChatTop>
                     )
                 }}
             </ChatContext.Consumer>
             <ChatScroll
-                style={{ flex: 1 }} 
+                style={{ flex: 1, marginBlock: '60px' }} 
                 page={this.state.pagination.page} 
                 onScrollTop={this.handleScrollTop}
                 onMount={ref => this.scrollRef = ref}>
@@ -299,10 +305,7 @@ const ChatRoomWrapper = styled.section`
     height: 100%;
     display: flex;
     flex-flow: column nowrap;
-`
-
-const ChatSection = styled.div`
-    flex: 1;
+    position: relative;
 `
 
 const ChatTop = styled.div`
@@ -311,6 +314,11 @@ const ChatTop = styled.div`
     display: flex;
     flex-shrink: 0;
     border-bottom: 2px solid ${props => props.theme.input};
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
 
     & > span {
         width: 60px;
@@ -325,6 +333,11 @@ const ChatBottom = styled.div`
     display: flex;
     flex-shrink: 0;
     border-top: 2px solid ${props => props.theme.input};
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
 
     & > span {
         width: 60px;

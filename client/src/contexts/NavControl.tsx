@@ -47,26 +47,26 @@ export class NavControlProvider extends Component {
         const width = window.innerWidth;
         if (this.state.windowWidth !== width) {
             if (width > 800) {
-                this.setState({ isMobileViewPort: false })
-                window.removeEventListener('click', this.handleCloseSidebar)
+                this.setState({ isMobileViewPort: false, toggle: false }, this.toggleValueChangeCallback)
             } else {
-                this.setState({ isMobileViewPort: true, toggleValue: false })
-                window.addEventListener('click', this.handleCloseSidebar)
+                this.setState({ isMobileViewPort: true, toggle: false }, this.toggleValueChangeCallback)
             }
             this.setState({ windowWidth: width })
         }
     }
 
     switchToggleValue = () => {
-        const newValue = !this.state.toggle;
-        this.setState({ toggle: newValue });
-        if (newValue) {
+        this.setState({ toggle: !this.state.toggle },  this.toggleValueChangeCallback);
+    }
+
+    toggleValueChangeCallback = () => {
+        if (this.state.toggle && this.state.isMobileViewPort) {
             window.setTimeout(
                 () => window.addEventListener('click', this.handleCloseSidebar),
                 500
             )
         } else {
-            // window.removeEventListener('click', (e) => this.handleCloseSidebar)
+            window.removeEventListener('click', (e) => this.handleCloseSidebar)
         }
     }
 
@@ -84,7 +84,7 @@ export class NavControlProvider extends Component {
     }
 
     setNavToggle = (bool: boolean): void => {
-        this.setState({ toggle: bool })
+        this.setState({ toggle: bool }, this.toggleValueChangeCallback)
     }
 
     render() {
