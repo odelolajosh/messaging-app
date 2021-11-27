@@ -54,7 +54,7 @@ const Login: React.FC<Props> = (props) => {
                         { pending ? <Spinner /> : '' }
                     </button>
                 </div>
-                <div className="redirect">Already have an account?<Link to="/signup">Login</Link></div>
+                <div className="redirect">Already have an account?<Link to="/login">Login</Link></div>
             </form>
         </main>
     )
