@@ -71,5 +71,4 @@ const SideNavbar: React.FC<NavbarProps> = ({ colors }) => {
     )
 }
 
-
 export default withTheme(withRouter(Navbar))

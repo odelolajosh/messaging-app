@@ -61,7 +61,7 @@ export class ThemeContextProvider extends Component {
         }}
       >
         <ThemeProvider theme={theme[this.state.theme]}>
-          {this.props.children}
+          {this.props.children as JSX.Element}
         </ThemeProvider>
       </ThemeContext.Provider>
     )

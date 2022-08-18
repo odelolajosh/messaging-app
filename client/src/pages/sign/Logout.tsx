@@ -1,6 +1,5 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { Redirect } from "react-router-dom";
-import { ThemeContext } from "../../contexts/Theme";
 import "../../style/form.css";
 import {  SpinnerFullPage } from "../../components/spinner";
 import { useDispatch, useSelector } from "react-redux";

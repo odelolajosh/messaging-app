@@ -17,7 +17,7 @@ const store: Store = createStore(
 type Props = {
     children: ReactNode;
 }
-export function StoreProvider(props: Props): JSX.Element {
+export function StoreProvider(props: Props) {
     const { children } = props;
-    return <Provider store={store}>{ children }</Provider>
+    return <Provider store={store}>{ children as any }</Provider>
 }

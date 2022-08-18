@@ -36,7 +36,7 @@ const App: React.FC<AppPropType> = ({ colors }) => {
         (isTokenPreserved && pending) 
         ? <SpinnerFullPage useLogo={true} /> 
         : (isTokenPreserved && error) 
-          ? <div>An Error Occured</div> 
+          ? <div>An Error Occurred</div> 
           : <Routing />
       }
     </Layout>

@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 
 export type TypingType = { [Key: string]: number | undefined };
 export type UserType = {
