@@ -1,0 +1,21 @@
+{
+  "name": "you-chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:client": "cd client && npm start",
+    "start:server": "cd server && node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/odelolajosh/messaging-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/odelolajosh/messaging-app/issues"
+  },
+  "homepage": "https://github.com/odelolajosh/messaging-app#readme"
+}
