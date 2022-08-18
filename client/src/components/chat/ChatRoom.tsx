@@ -1,4 +1,4 @@
-import { Component, Fragment, KeyboardEventHandler } from "react";
+import React, { Fragment, KeyboardEventHandler } from "react";
 import { RouteComponentProps, withRouter } from "react-router";
 import { SpinnerFullPage } from "../spinner";
 import noUserSelected from '../../assets/select_a_user.svg';
@@ -15,7 +15,6 @@ import { ChatContext, UserType } from "../../contexts/ChatContext";
 import { State } from "../../store/type";
 import ChatScroll from "./ChatScroll";
 import { NavContext } from "../../contexts/NavControl";
-import { bindActionCreators } from "redux";
 
 const limit = 15
 
@@ -39,7 +38,7 @@ type Props = {
     setNavToggle: (bool: boolean) => void
 } & RouteComponentProps & ReturnType<typeof mapStateToProps>
 
-class ChatRoom extends Component<Props, StateType> {
+class ChatRoom extends React.Component<Props, StateType> {
     constructor(props: Props) {
         super(props)
         this.state = {
@@ -404,4 +403,5 @@ const Action = styled.span`
     cursor: pointer;
 `
 
+//@ts-ignore
 export default connect(mapStateToProps)(withRouter(ChatRoom));

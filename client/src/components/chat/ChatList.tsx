@@ -70,7 +70,7 @@ const ChatListView = styled.div`
 const ChatList: React.FC = () => {
     const { chatList = [], addChatsToList, addAChatToList, disconnectChat } = useContext(ChatContext);
     const { toggleTheme } = useContext(ThemeContext)
-    const { id } = useSelector(selectAuthValue);
+    const { id, imageUrl, username } = useSelector(selectAuthValue);
     const [search, setSearch] = useState('')
 
     useEffect(() => {
