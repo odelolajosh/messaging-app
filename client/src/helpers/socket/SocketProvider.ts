@@ -5,7 +5,7 @@ class SocketProvider {
 
     SOCKET_URL = process.env.NODE_ENV === 'development' 
         ? "http://localhost:4001"
-        : "https://my-chat-app-server-0707.herokuapp.com";
+        : "https://arcane-cove-69122.herokuapp.com";
 
     createSocketConnection(id: string) {
         try {
